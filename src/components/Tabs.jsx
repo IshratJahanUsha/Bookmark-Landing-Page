@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+// import data from "../constant.js";
+
 const data = [
   {
     id: 1,

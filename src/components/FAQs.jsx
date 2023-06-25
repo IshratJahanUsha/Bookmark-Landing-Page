@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import arrow from "../images/icon-arrow.svg";
 import arrowRed from "../images/icon-arrow-red.svg";
+// import questions from "../constant.js";
 
 const questions = [
   {
@@ -54,22 +55,26 @@ export default function FAQs() {
 
         <div className="my-8">
           {items.map((item, index) => (
-            <div className="py-3 border-t border-slate-300 last:border-b last:border-slate-300 flex items-center justify-between cursor-pointer" key={index}>
-              <div>
-                <h3 className="flex font-normal text-lg hover:text-red-400" onClick={() => toggleAnswer(index)}>
+            <div className="py-3 border-t border-slate-300 last:border-b last:border-slate-300 flex flex-col items-center justify-between cursor-pointer" key={index}>
+
+              <div className="flex flex-row gap-4 justify-between">
+                <h3 className="font-normal text-lg hover:text-red-400" onClick={() => toggleAnswer(index)}>
                   {item.question}
                 </h3>
-                {activeIndex === index && (
-                  <p className="flex">{item.answer}</p>
-                )}
+
+                <button className="">
+                  {activeIndex === index ? (
+                    <img src={arrowRed} alt="" className="arrow transform rotate-180" onClick={() => toggleAnswer(index)} />
+                  ) : (
+                    <img src={arrow} alt="" onClick={() => toggleAnswer(index)} />
+                  )}
+                </button>
               </div>
-              <button className="">
-                {activeIndex === index ? (
-                  <img src={arrowRed} alt="" className="arrow transform rotate-180" onClick={() => toggleAnswer(index)} />
-                ) : (
-                  <img src={arrow} alt="" onClick={() => toggleAnswer(index)} />
-                )}
-              </button>
+
+              {activeIndex === index && (
+                <p className="flex transition-all duration-1000">{item.answer}</p>
+              )}
+
             </div>
           ))}
         </div>

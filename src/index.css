@@ -10,8 +10,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-nav {
-  @apply flex justify-between flex-col opacity-0 absolute -z-50 lg:opacity-100 lg:relative lg:z-auto;
+@layer base{
+  nav {
+    @apply flex justify-between flex-col opacity-0 absolute -z-50 lg:opacity-100 lg:relative lg:z-auto;
+  }
 }
 
 nav.open {
@@ -24,12 +26,12 @@ nav.open {
   z-index: 999;
   padding: 32px;
   opacity: 1;
-  transform: translateX(0);
+  /* transform: translateX(0); */
   transition: brackground-color .5s;
 }
 
 nav.open ul {
-  transform: translateX(0);
+  /* transform: translateX(0); */
 }
 
 nav ul li button {
@@ -37,22 +39,32 @@ nav ul li button {
   font-size: 16px;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  @apply text-slate-800 font-bold;
+@layer base{
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-slate-800 font-bold;
+  }
 }
 
-p {
-  @apply text-slate-600;
-  line-height: 1.8;
+
+@layer base{
+  p {
+    @apply text-slate-600;
+    line-height: 1.8;
+  }
 }
 
-button {
-  @apply text-slate-600;
+@layer component{
+  button {
+    @apply text-slate-600;
+  }
 }
 
+.btn-home{
+  border:1px solid transparent ;
+}
 .btn-home:hover{
 border: 1px solid hsl(232, 52%, 22%);
 }
@@ -62,6 +74,7 @@ border: 1px solid hsl(232, 52%, 22%);
 }
 .btn-blue {
   background-color: hsl(231, 69%, 60%);
+  border:1px solid transparent ;
 }
 .btn-blue:hover {
   background-color: #fff;
@@ -71,6 +84,7 @@ border: 1px solid hsl(232, 52%, 22%);
 
 .btn-red {
   background-color: #fa5757;
+  border:1px solid transparent ;
 }
 .btn-red:hover {
   background-color: #fff;
@@ -100,21 +114,16 @@ border: 1px solid hsl(232, 52%, 22%);
   z-index: -1;
 }
 
-.arrow{
-  height: 12px;
-  width: 18px ;
-}
-
 footer{
   background-color: hsl(229, 31%, 21%);
 }
 
 
 @media (max-width: 1023px) {
-  ul {
+  /* ul {
     transform: translateX(100%);
     transition: transform .5s ease-in-out;
-  }
+  } */
 
 }
 
